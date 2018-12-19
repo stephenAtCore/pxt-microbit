@@ -4,20 +4,29 @@
 
 In this Tutorial we will create a soil moisture sensor using the SparkFun Soil Moisture Sensor Probe
 
-//![Simulating coin toss](/static/mb/projects/coin-flipper/coin-flipper.gif)
 
 ## Step 1
 
 Get an ``||basic:show string||`` block from the ``||basic:Basic||`` drawer in the toolbox. We'll enter "Cal Wet" and put it inside the ``||basic:on start||``.
 
 ```blocks
-input.onButtonPressed(Button.A, () => {
-})
+basic.showString("Cal WET")
+```
+## Step 2
+
+Get an ``||loops:while||`` block from the ``||loops:Loops||`` drawer in the toolbox. Put it below the ``||basic:show string||`` block inside ``||basic:on start||``.
+
+We want this loop to run until we press Button B. Get a ``||logic:not||`` from the ``||logic:Logic||`` toolbox and put it in the ``||loops:while||`` condition. Inside that we will put a ``||input:on button A pressed||``.
+
+```blocks
+while (!(input.buttonIsPressed(Button.B))) {
+}
 ```
 
 ## Step 2
 
 Grab an ``||logic:if else||`` block and set it inside ``||input:on button A pressed||``. Put a ``||Math:pick random true or false||`` into the ``||logic:if||`` as its condition.
+
 
 The ``||Math:pick random true or false||`` returns a random ``true`` or ``false`` value which we use to determine a ``heads`` or ``tails`` result for a coin toss.
 
